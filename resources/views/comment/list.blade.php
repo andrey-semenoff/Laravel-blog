@@ -27,9 +27,9 @@
             @endif
             <span class="comment__likes">10</span>
             <span class="comment__vote">
-            <span class="far fa-thumbs-up"></span>
-            <span class="far fa-thumbs-down"></span>
-          </span>
+              <a href="/like/comment/{{$comment['id']}}/1" class="text-success"><span class="far fa-thumbs-up"></span></a>
+              <a href="/like/comment/{{$comment['id']}}/0" class="text-danger"><span class="far fa-thumbs-down"></span></a>
+            </span>
             <span class="comment__dislikes">1</span>
           </div>
 
@@ -66,8 +66,8 @@
                         @endif
                         <span class="comment__likes">10</span>
                         <span class="comment__vote">
-                          <span class="far fa-thumbs-up"></span>
-                          <span class="far fa-thumbs-down"></span>
+                          <a href="/like/comment/{{$subcomment['id']}}/1" class="text-success"><span class="far fa-thumbs-up"></span></a>
+                          <a href="/like/comment/{{$subcomment['id']}}/0/delete" class="text-danger"><span class="far fa-thumbs-down"></span></a>
                         </span>
                         <span class="comment__dislikes">1</span>
                       </div>

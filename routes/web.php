@@ -23,3 +23,7 @@ Route::get('/comment/{comment}', 'CommentController@show');
 Route::get('/comment/{comment}/edit', 'CommentController@edit');
 Route::patch('/comment/{comment}', 'CommentController@update');
 Route::get('/comment/{comment}/delete', 'CommentController@destroy');
+
+// Likes
+Route::get('/like/{likable_type}/{likable_id}/{type}', 'LikeController@store');
+Route::get('/like/{like}/delete', 'LikeController@destroy');
