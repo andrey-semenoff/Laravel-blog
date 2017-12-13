@@ -17,6 +17,14 @@
                     </div>
                 @endif
 
+                @if( session()->get('open_auth_form') !== null )
+                    <script>
+                        $(function () {
+                            $('#login-modal').modal('show');
+                        });
+                    </script>
+                @endif
+
             </nav>
         </div>
     </div>

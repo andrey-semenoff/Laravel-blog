@@ -8,6 +8,10 @@
     <title>@yield('title')</title>
     <link rel="stylesheet" href="/libs/bootstrap4/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/blog.css{{ (true) ? '?'.filemtime('css/blog.css') : '' }}">
+    <script src="/libs/jquery/jquery-3.2.1.min.js"></script>
+    <script src="/libs/popper/popper.min.js"></script>
+    <script src="/libs/bootstrap4/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/main.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.1/js/all.js"></script>
 </head>
 <body>
@@ -20,10 +24,5 @@
     </main>
     @include('layouts.footer')
     @include('layouts.hidden')
-
-    <script src="/libs/jquery/jquery-3.2.1.min.js"></script>
-    <script src="/libs/popper/popper.min.js"></script>
-    <script src="/libs/bootstrap4/js/bootstrap.bundle.min.js"></script>
-    <script src="/js/main.js"></script>
 </body>
 </html>

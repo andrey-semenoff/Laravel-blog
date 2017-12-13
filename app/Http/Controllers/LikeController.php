@@ -6,6 +6,10 @@ use App\Like;
 
 class LikeController extends Controller
 {
+    public function __construct() {
+      $this->middleware('auth');
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -29,8 +33,12 @@ class LikeController extends Controller
             'likable_type' => 'App\\'. ucfirst($likable_type)
         ]);
       } else {
-        $like->type = $type;
-        $like->save();
+        if( $like->type == $type ) {
+          $like->delete();
+        } else {
+          $like->type = $type;
+          $like->save();
+        }
       }
 
       return redirect()->back();

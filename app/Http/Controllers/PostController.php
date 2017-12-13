@@ -72,10 +72,17 @@ class PostController extends Controller
       $subcomments_all = [];
 
       foreach($comments as $comment) {
-        $subcomment = $comment->comments()->get();
+        $comment->likes = $comment->likes()->count();
+        $comment->dislikes = $comment->dislikes()->count();
 
-        if( count($subcomment) > 0 ) {
-          $subcomments_all[$comment['id']] = $subcomment;
+        $subcomments = $comment->comments()->get();
+
+        if( count($subcomments) > 0 ) {
+          foreach($subcomments as $subcomment) {
+            $subcomment->likes = $subcomment->likes()->count();
+            $subcomment->dislikes = $subcomment->dislikes()->count();
+          }
+          $subcomments_all[$comment['id']] = $subcomments;
         }
       }
 

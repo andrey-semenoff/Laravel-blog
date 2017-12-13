@@ -25,12 +25,12 @@
               <a href="#" class="comment__btn comment__btn_edit-form text-warning">Редактировать</a>
               <a href="/comment/{{$comment['id']}}/delete" class="comment__btn comment__btn_delete text-danger">Удалить</a>
             @endif
-            <span class="comment__likes">10</span>
+            <span class="comment__likes">{{$comment['likes']}}</span>
             <span class="comment__vote">
               <a href="/like/comment/{{$comment['id']}}/1" class="text-success"><span class="far fa-thumbs-up"></span></a>
               <a href="/like/comment/{{$comment['id']}}/0" class="text-danger"><span class="far fa-thumbs-down"></span></a>
             </span>
-            <span class="comment__dislikes">1</span>
+            <span class="comment__dislikes">{{$comment['dislikes']}}</span>
           </div>
 
           @if( session()->has('is_allow') && !session('is_allow'))
@@ -64,12 +64,12 @@
                           <a href="#" class="comment__btn comment__btn_edit-form text-warning">Редактировать</a>
                           <a href="/comment/{{$comment['id']}}/delete" class="comment__btn comment__btn_delete text-danger">Удалить</a>
                         @endif
-                        <span class="comment__likes">10</span>
+                        <span class="comment__likes">{{$subcomment['likes']}}</span>
                         <span class="comment__vote">
                           <a href="/like/comment/{{$subcomment['id']}}/1" class="text-success"><span class="far fa-thumbs-up"></span></a>
-                          <a href="/like/comment/{{$subcomment['id']}}/0/delete" class="text-danger"><span class="far fa-thumbs-down"></span></a>
+                          <a href="/like/comment/{{$subcomment['id']}}/0" class="text-danger"><span class="far fa-thumbs-down"></span></a>
                         </span>
-                        <span class="comment__dislikes">1</span>
+                        <span class="comment__dislikes">{{$subcomment['dislikes']}}</span>
                       </div>
 
                     </div>
