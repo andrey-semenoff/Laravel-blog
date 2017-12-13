@@ -91,7 +91,7 @@ $(function () {
     var $this = $(this),
         $comment_inner = $this.closest('.comment-inner');
 
-      $comment_inner.find('.add_comment_to_comment').slideToggle();
+      $comment_inner.children('.comment__text').children('.add_comment_to_comment').slideToggle();
   });
 
   //Open|hide replays to comment

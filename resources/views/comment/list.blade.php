@@ -27,8 +27,8 @@
             @endif
             <span class="comment__likes">{{$comment['likes']}}</span>
             <span class="comment__vote">
-              <a href="/like/comment/{{$comment['id']}}/1" class="text-success"><span class="far fa-thumbs-up"></span></a>
-              <a href="/like/comment/{{$comment['id']}}/0" class="text-danger"><span class="far fa-thumbs-down"></span></a>
+              <a href="/like/comment/{{$comment['id']}}/1" class="text-success"><span class="{{ (count($comment['vote']) && $comment['vote']['type'] == 1) ? 'fas' : 'far'  }} fa-thumbs-up"></span></a>
+              <a href="/like/comment/{{$comment['id']}}/0" class="text-danger"><span class="{{ (count($comment['vote']) && $comment['vote']['type'] == 0) ? 'fas' : 'far'  }} fa-thumbs-down"></span></a>
             </span>
             <span class="comment__dislikes">{{$comment['dislikes']}}</span>
           </div>
@@ -54,8 +54,8 @@
                         <span class="comment__title-date">{{ date('d-m-Y (H:i:s)', $subcomment['created_at']->getTimestamp()) }}</span>
                       </div>
                       <div class="comment__text">
-                        @include('comment.edit', ['id' => $subcomment['id'], 'text' => $subcomment['text']])
-                        @include('comment.add', ['type'=>'comment', 'id' => $subcomment['id']])
+                        {{--@include('comment.edit', ['id' => $subcomment['id'], 'text' => $subcomment['text']])--}}
+                        {{--@include('comment.add', ['type'=>'comment', 'id' => $subcomment['id']])--}}
                         {{ $subcomment->text }}
                       </div>
 
@@ -66,8 +66,8 @@
                         @endif
                         <span class="comment__likes">{{$subcomment['likes']}}</span>
                         <span class="comment__vote">
-                          <a href="/like/comment/{{$subcomment['id']}}/1" class="text-success"><span class="far fa-thumbs-up"></span></a>
-                          <a href="/like/comment/{{$subcomment['id']}}/0" class="text-danger"><span class="far fa-thumbs-down"></span></a>
+                          <a href="/like/comment/{{$subcomment['id']}}/1" class="text-success"><span class="{{ (count($subcomment['vote']) && $subcomment['vote']['type'] == 1) ? 'fas' : 'far'  }} fa-thumbs-up"></span></a>
+                          <a href="/like/comment/{{$subcomment['id']}}/0" class="text-danger"><span class="{{ (count($subcomment['vote']) && $subcomment['vote']['type'] == 0) ? 'fas' : 'far'  }} fa-thumbs-down"></span></a>
                         </span>
                         <span class="comment__dislikes">{{$subcomment['dislikes']}}</span>
                       </div>

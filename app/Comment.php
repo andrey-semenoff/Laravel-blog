@@ -31,4 +31,10 @@ class Comment extends Model
   public function dislikes() {
     return $this->morphMany('App\Like', 'likable')->where('type', false);
   }
+
+  public function vote() {
+    return $this->morphMany('App\Like', 'likable')
+        ->where('user_id', auth()->id())
+        ->select('likes.type');
+  }
 }

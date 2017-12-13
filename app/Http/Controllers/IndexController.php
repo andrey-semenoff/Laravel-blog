@@ -12,7 +12,7 @@ class IndexController extends Controller
    */
   public function index()
   {
-    $posts = Post::get();
+    $posts = Post::orderBy('created_at', 'desc')->get();
 
     return view('main', compact('posts'));
   }

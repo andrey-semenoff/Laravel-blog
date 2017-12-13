@@ -27,7 +27,7 @@ class PostController extends Controller
         $posts = $posts->whereMonth('created_at', $month);
       }
 
-      $posts = $posts->get();
+      $posts = $posts->orderBy('created_at', 'desc')->get();
 
       return view('post.list', compact('posts'));
     }
@@ -74,6 +74,7 @@ class PostController extends Controller
       foreach($comments as $comment) {
         $comment->likes = $comment->likes()->count();
         $comment->dislikes = $comment->dislikes()->count();
+        $comment->vote = $comment->vote()->first();
 
         $subcomments = $comment->comments()->get();
 
@@ -81,6 +82,7 @@ class PostController extends Controller
           foreach($subcomments as $subcomment) {
             $subcomment->likes = $subcomment->likes()->count();
             $subcomment->dislikes = $subcomment->dislikes()->count();
+            $subcomment->vote = $subcomment->vote()->first();
           }
           $subcomments_all[$comment['id']] = $subcomments;
         }
